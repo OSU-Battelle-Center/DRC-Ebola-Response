@@ -22,6 +22,10 @@ const map = new mapboxgl.Map({
   center: [31.242613, 0.707124],
   zoom: 5.2
 });
+map.on('load', function () {
+var layers = map.getStyle().layers;
+
+});
 </script>
 
 </body>

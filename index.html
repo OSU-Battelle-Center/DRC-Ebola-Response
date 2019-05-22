@@ -25,6 +25,42 @@ const map = new mapboxgl.Map({
 map.on('load', function () {
 var layers = map.getStyle().layers;
 
+map.addSource('Total confirmed cases', {
+          type: 'vector',
+          url: 'mapbox://osu-battelle-center.07c3yg77'
+      });
+      map.addLayer({
+        id: 'Total confirmed cases',
+        type: 'fill',
+        source: 'Total confirmed cases',
+        'source-layer': 'Archive-0p3pwf',
+        filter: [
+            "match",
+            ["get", "ADM1_NAME"],
+            ["ITURI", "NORD KIVU"],
+            true,
+            false
+        ],
+        layout: {},
+        paint: {
+            "fill-color": [
+                "interpolate",
+                ["linear"],
+                ["get", "case_dat_5"],
+                0,
+                "hsl(0, 99%, 100%)",
+                56.3,
+                "hsl(0, 100%, 70%)",
+                112.5,
+                "hsl(0, 100%, 60%)",
+                168.8,
+                "hsl(0, 100%, 50%)",
+                225,
+                "hsl(0, 100%, 40%)"
+            ],
+            "fill-opacity": 0.50
+        }
+    });
 });
 </script>
 

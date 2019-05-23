@@ -22,56 +22,6 @@ const map = new mapboxgl.Map({
   zoom: 5.2
 });
   
-<style>
-  #menu {
-  background: rgba(200, 200, 200, 1);
-  position: absolute;
-  z-index: 1;
-  top:150px;
-  left: 10px;
-  border-radius: 3px;
-  width: 180px;
-  font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
-}
-#menu a {
-  font-size: 15px;
-  display: block;
-  margin: 0px;
-  border-color: rgba(200, 200, 200, 0.8);
-  outline-color: rgba(200, 200, 200, 0.8);
-  -webkit-border-before-color: rgba(200, 200, 200, 1);;
-  padding: 5px;
-  text-decoration: none;
-  border-bottom: 1px solid rgba(0,0,0,0.25);
-  border-radius: 2px;
-  text-align: center;
-  text-emphasis-color: #000000;
-  -webkit-text-fill-color: #000000;
-}
-
-#menu a:last-child {
-  border: none;
-}
-
-#menu a:hover {
-  color: rgba(200, 200, 200, 1);
-}
-
-#menu a.active {
-  background-color: rgba(200, 200, 200, 1);
-}
-
-#menu a.active:hover {
-  background: #3074a4;
-}
-
-h2,
-h3 {
-  margin: 8px;
-  font-size: 1.2em;
-}
-</style>
-  
 <nav id= 'menu'></nav>
 <div class = 'intro-header' id 'features'>
   <h2> 2019 North Kivu Ebola Outbreak</h2>

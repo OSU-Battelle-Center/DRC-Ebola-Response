@@ -294,15 +294,13 @@
         'type': 'circle',
         'source': 'Vaccinations',
         'paint': {
-          'circle-radius': {
+          'circle-radius': 
             [
             'interpolate',
             ['linear'], 
             ['number', ['get', 'Vaccinations']],
             13, 25, 23000, 100 
             ], 
-            
-          },
           'circle-color': '#39ff14',
           'circle-opacity': 0.5
         }

@@ -342,14 +342,14 @@
         map.getCanvas().style.cursor = 'pointer';
 
         //variable to convert timestamp into normal date
-        var date = new Date(e.features[0].properties['nature-of-facility']);
+        var date = new Date(e.features[0].properties["date_modified"]);
         
         // Populate the popup and set its coordinates based on the feature found.
         popup.setLngLat(e.features[0].geometry.coordinates)
           .setHTML(
-            "<h2>Health Site: "+e.features[0].properties["name"]+"</h2>"+
-            "<b>Date Modified:</b> "+e.features[0].properties["date_modified"]+"<br>"+
-            "<b>Type:</b> "+date.toDateString()
+            "<h2>Health Site: " + e.features[0].properties["name"] + "</h2>"+
+            "<b>Date Modified:</b> " + date.toDateString() + "<br>" +
+            "<b>Type:</b> " + e.features[0].properties['nature-of-facility']
           ).addTo(map);
       });
     });

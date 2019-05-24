@@ -295,14 +295,15 @@
         'source': 'Vaccinations',
         'paint': {
           'circle-radius': {
+            'base': 10,
+            'stops': [[12, 5], [22, 10]],
             [
             'interpolate',
             ['exponential', 10], 
             ['number', ['get', 'Vaccinations']],
-            13, 25, 23000, 250 
+            13, 25, 23000, 100 
             ], 
-            'base': 10,
-            'stops': [[12, 5], [22, 10]]
+            
           },
           'circle-color': '#39ff14',
           'circle-opacity': 0.5

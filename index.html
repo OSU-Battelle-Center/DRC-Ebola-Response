@@ -316,9 +316,7 @@
                 "<h2>"+e.features[0].properties["City"]+"</h2>"+
                 "<b>Date Modified:</b> "+e.features[0].properties["Date Updated"]+"<br>"+
                 "<b>Vaccinations:</b> "+e.features[0].properties["Vaccinations"]
-            )
-            //.setHTML(e.features[0].properties.description)
-            .addTo(map);
+            ).addTo(map);
       });
       map.addSource('Health Clinics', {
         type: 'geojson',
@@ -343,13 +341,15 @@
         // Change the cursor style as a UI indicator.
         map.getCanvas().style.cursor = 'pointer';
 
-        // Populate the popup and set its coordinates
-        // based on the feature found.
+        //variable to convert timestamp into normal date
+        var date = new Date(e.features[0].properties['nature-of-facility']);
+        
+        // Populate the popup and set its coordinates based on the feature found.
         popup.setLngLat(e.features[0].geometry.coordinates)
           .setHTML(
             "<h2>Health Site: "+e.features[0].properties["name"]+"</h2>"+
             "<b>Date Modified:</b> "+e.features[0].properties["date_modified"]+"<br>"+
-            "<b>Type:</b> "+e.features[0].properties["type"]
+            "<b>Type:</b> "+date.toDateString()
           ).addTo(map);
       });
     });

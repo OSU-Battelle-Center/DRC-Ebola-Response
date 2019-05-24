@@ -231,7 +231,7 @@
           'circle-radius': [
             'interpolate',
             ['linear'], 
-            ['number', ['get', 'Individuals']],
+            ['to-number', ['get', 'Individuals']],
              1300, 35, 2500, 45, 3500, 55, 5000, 65, 7600, 75
           ],
           'circle-color': '#FFA500',
@@ -247,7 +247,7 @@
         popup.setLngLat(e.features[0].geometry.coordinates)
           .setHTML(
           "<h2>" + e.features[0].properties["Site"] + "</h2>" +
-          "<b>Date:</b> " + e.features[0].properties["Date"] + "2018" + "<br>" +
+          "<b>Date:</b> " + e.features[0].properties["Date"] + " 2018" + "<br>" +
           "<b>City:</b> " + e.features[0].properties["City"] + "<br>" +
           "<b>Population:</b> " + e.features[0].properties["Individuals"] + "<br>" + 
           "<b>Number of Families:</b> " + e.features[0].properties["Number of Menages"]

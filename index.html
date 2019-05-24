@@ -218,26 +218,27 @@
         ).addTo(map);
       });
     
-      map.addSource('Refugees', {
+     map.addSource('Displacement Settlements', {
         type: 'geojson',
         data: 'Data/site_assessment_30.geojson'
       });
       map.addLayer({
-        'id': 'Refugees',
+        'id': 'Displacement Settlements',
         'type': 'circle',
-        'source': 'Refugees',
+        'source': 'Displacement Settlements',
         'paint': {
-          // make circles larger as the user zooms from z12 to z22
-          'circle-radius': {
-            'base': 10,
-            'stops': [[12, 5], [22, 10]]
-          },
+          // circle radius represents number of individuals
+          'circle-radius': [
+            'interpolate',
+            ['linear'], 
+            ['number', ['get', 'Individuals']],
+             1300, 25, 2500, 35, 3500, 45, 5000, 55, 7600, 68
+          ],
           'circle-color': '#ffff11',
-          'circle-stroke-color': '#555500',
-          'circle-stroke-width':1
+          'circle-opacity': 0.5
         }
       });
-      map.on('mouseover', 'Refugees', function(e) {
+      map.on('mouseover', 'Displacement Settlements', function(e) {
         // Change the cursor style as a UI indicator.
         map.getCanvas().style.cursor = 'pointer';
 
@@ -245,13 +246,14 @@
         // based on the feature found.
         popup.setLngLat(e.features[0].geometry.coordinates)
           .setHTML(
-          "<h2>"+e.features[0].properties["Site"]+"</h2>"+
-          "<b>Date:</b> "+e.features[0].properties["Date"]+"<br>"+
-          "<b>City:</b> "+e.features[0].properties["City"]+"<br>"+
-          "<b>Place:</b> "+e.features[0].properties["Place"]
+          "<h2>" + e.features[0].properties["Site"] + "</h2>" +
+          "<b>Date:</b> " + e.features[0].properties["Date"] + "2018" + "<br>" +
+          "<b>City:</b> " + e.features[0].properties["City"] + "<br>" +
+          "<b>Population:</b> " + e.features[0].properties["Individuals"] + "<br>" + 
+          "<b>Number of Families:</b> " + e.features[0].properties["Number of Menages"]
         ).addTo(map);
       });
-
+      
       map.addSource('Points of Entry', {
         type: 'geojson',
         data: 'Data/POE-working-list.geojson'

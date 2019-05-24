@@ -285,6 +285,24 @@
       });
 
       //ADD VACCINATION DATA
+      map.addSource('Vaccinations', {
+        type: 'geojson',
+        data: 'Data/vaccination_count4-19.geojson'
+      });
+      map.addLayer({
+        'id': 'Vaccinations',
+        'type': 'circle',
+        'source': 'Vaccinations',
+        'paint': {
+          'circle-radius': [
+            'interpolate',
+            ['linear'], 
+            ['number', ['get', 'Vaccinations']],
+            0, 4, 5, 24
+          ],
+          'circle-opacity': 0.7
+        }
+      });
       map.on('mouseover', 'Vaccinations', function(e) {
         // Change the cursor style as a UI indicator.
         map.getCanvas().style.cursor = 'pointer';

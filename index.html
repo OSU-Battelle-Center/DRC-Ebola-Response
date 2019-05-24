@@ -99,8 +99,8 @@
   //Ensures map finishes loading before data layers are added
   map.on('load', function () {
     //var layers = map.getStyle().layers;
-    var dataLayers = ['Violence', 'Refugees', 'Health Clinics', 'Points of Entry', 'Vaccinations'];
-    var colors = ['#FF0000', '#FFFF00', '#FFFFFF', '#22ddff', '#39ff14'];
+    var dataLayers = ['Violence', 'Displacement Settlements', 'Health Clinics', 'Points of Entry', 'Vaccinations'];
+    var colors = ['#FF0000', '#FFA500', '#FFFFFF', '#22ddff', '#39ff14'];
     for (i = 0; i < dataLayers.length; i++) {
       var layer = dataLayers[i];
       var color = colors[i];
@@ -232,9 +232,9 @@
             'interpolate',
             ['linear'], 
             ['number', ['get', 'Individuals']],
-             1300, 25, 2500, 35, 3500, 45, 5000, 55, 7600, 68
+             1300, 35, 2500, 45, 3500, 55, 5000, 65, 7600, 75
           ],
-          'circle-color': '#ffff11',
+          'circle-color': '#FFA500',
           'circle-opacity': 0.5
         }
       });
@@ -361,7 +361,7 @@
       var month = parseInt(e.target.value, 10);
       filterBy(month);
     });
-    var toggleableLayerIds = ['Violence','Refugees', 'Health Clinics','Vaccinations','Points of Entry', 'Total Confirmed Cases'];
+    var toggleableLayerIds = ['Violence','Displacement Settlements', 'Health Clinics','Vaccinations','Points of Entry', 'Total Confirmed Cases'];
     for (var i = 0; i < toggleableLayerIds.length; i++) {
       var id = toggleableLayerIds[i];
       var link = document.createElement('a');
